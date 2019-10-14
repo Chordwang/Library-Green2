@@ -1,0 +1,41 @@
+﻿{
+  "manifest_version": 2,
+
+  "name": "文库·绿化阅读",
+
+  "version": "4.0",
+
+  "update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query",
+
+  "icons": {
+          "16": "logo.png",
+          "48": "logo.png",
+          "128": "logo.png"
+        },
+
+  "permissions": [
+	"contextMenus",
+	"webRequest",
+	"webRequestBlocking",
+	"storage",
+	"activeTab",
+	"tabs",
+	"http://*/",
+	"https://*/"
+  ],
+
+  "background": {
+    "scripts":["background.js"],
+    "persistent": true
+  },
+
+  "content_scripts":[{
+	"matches": ["https://wenku.baidu.com/view/*",
+				"http://wenku.baidu.com/view/*",
+				"https://www.doc88.com/*",
+				"http://www.doc88.com/*"],
+	"js":["jquery-3.4.1.min.js","html2canvas.min.js","jspdf.min.js","content.js"]
+  }],
+
+  "description": "一键开启文库阅读模式。现目前仅支持百度文库，其他文库将陆续添加。【功能一】：绿化阅读界面【功能二】：解除禁止复制【功能三】：下载可免费阅读的文档【By】：窗含西岭千秋雪"
+}
